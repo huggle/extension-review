@@ -36,6 +36,7 @@ class review : public QDeclarativeItem, public Huggle::iExtension
         ~review();
         bool Register();
         bool IsWorking();
+        void Hook_MainWindowOnRender();
         void Hook_MainWindowOnLoad(void *window);
         QString GetExtensionName() { return "Review"; }
         QString GetExtensionAuthor() { return "Petr Bena"; }
@@ -48,8 +49,10 @@ class review : public QDeclarativeItem, public Huggle::iExtension
         void ClickAccept();
         void ClickReject();
     private:
+        void Switch(bool status);
         QAction *menuAccept;
         QAction *menuReject;
+        QAction *menuSeparator;
         Huggle::MainWindow *Window;
 };
 
